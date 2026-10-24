@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { DemoVideoProvider } from "@/components/providers/demo-video-provider";
 import BasaltFooter from "@/components/basalt-theme/BasaltFooter";
+import { LegacyMarketingChrome, LegacyPageFrame } from "@/components/basalt-marketing/LegacyMarketingChrome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,9 +54,9 @@ export const metadata: Metadata = {
     shortcut: ["/l1logows.png"]
   },
   manifest: "/manifest.webmanifest",
-  metadataBase: new URL("https://basalthq.com"),
+  metadataBase: new URL("https://erp.basalthq.com"),
   alternates: {
-    canonical: "https://basalthq.com",
+    canonical: "https://erp.basalthq.com",
   },
   openGraph: {
     title: "BasaltERP – AI-Assisted Universal ERP Platform",
@@ -148,8 +149,8 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider>
           <DemoVideoProvider>
-            <Navbar />
-            <main className="relative z-10">{children}</main>
+            <LegacyMarketingChrome><Navbar /></LegacyMarketingChrome>
+            <LegacyPageFrame className="relative z-10">{children}</LegacyPageFrame>
             <BasaltFooter />
           </DemoVideoProvider>
         </ThemeProvider>
